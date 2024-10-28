@@ -7,18 +7,23 @@ document.addEventListener("mouseover", (event) => {
     }
 })
 
-document.addEventListener("click", (event) => {
+button.addEventListener("click", (event) => {
     if (event.target.getAttribute("id") === "size") {
         loadGrid(prompt("Enter new size:"));
     }
 })
 
 function loadGrid (size) {
-    if (size != "" && size != null && size != 0) {
+    if (size >= 1 && size <= 100) {
+
+        button.textContent = `Size (${size}x${size})`;
+
         grid.remove();
+
         const newGrid = document.createElement("div");
         newGrid.setAttribute("id", "grid");
         gridContainer.appendChild(newGrid);
+
         for (let i = 0; i < size; i++) {
             const gridColumn = document.createElement("div");
             gridColumn.setAttribute("class", "gridColumn");
@@ -31,3 +36,5 @@ function loadGrid (size) {
         }        
     }
 }
+
+loadGrid(16);
