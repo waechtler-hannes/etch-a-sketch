@@ -1,0 +1,17 @@
+#grid {
+    display: flex;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border: 2px solid black;
+    flex-direction: column;
+}
+
+.gridColumn {
+    flex: 1 0 auto;
+    display: flex;
+}
+
+.gridRow {
+    flex: 1 0 auto;
+}
