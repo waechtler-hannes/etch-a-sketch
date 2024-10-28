@@ -1,9 +1,14 @@
-#grid {
-    display: flex;
+#grid-container {
+    border: 2px solid black;
+    margin: 0 auto;
     width: 500px;
     height: 500px;
-    margin: 0 auto;
-    border: 2px solid black;
+}
+
+#grid {
+    width: inherit;
+    height: inherit;
+    display: flex;
     flex-direction: column;
 }
 
@@ -14,4 +19,10 @@
 
 .gridRow {
     flex: 1 0 auto;
+}
+
+#size {
+    display: block;
+    margin: 20px auto;
+    font-size: 25px;
 }

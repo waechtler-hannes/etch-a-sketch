@@ -1,17 +1,33 @@
-const grid = document.querySelector("#grid");
-
-for (let i = 0; i < 16; i++) {
-    const gridColumn = document.createElement("div");
-    gridColumn.setAttribute("class", "gridColumn");
-    grid.appendChild(gridColumn);
-    for (let j = 0; j < 16; j++) {
-    const gridRow = document.createElement("div");
-    gridRow.setAttribute("class", "gridRow");
-    gridColumn.appendChild(gridRow);
-    }
-}
+const button = document.querySelector("#size");
+const gridContainer = document.querySelector("#grid-container");
 
 document.addEventListener("mouseover", (event) => {
-    if (event.target.getAttribute("class") === "gridRow")
-    event.target.setAttribute("style", "background-color: black;")
+    if (event.target.getAttribute("class") === "gridRow") {
+        event.target.setAttribute("style", "background-color: black;")
+    }
 })
+
+document.addEventListener("click", (event) => {
+    if (event.target.getAttribute("id") === "size") {
+        loadGrid(prompt("Enter new size:"));
+    }
+})
+
+function loadGrid (size) {
+    if (size != "" && size != null && size != 0) {
+        grid.remove();
+        const newGrid = document.createElement("div");
+        newGrid.setAttribute("id", "grid");
+        gridContainer.appendChild(newGrid);
+        for (let i = 0; i < size; i++) {
+            const gridColumn = document.createElement("div");
+            gridColumn.setAttribute("class", "gridColumn");
+            grid.appendChild(gridColumn);
+            for (let j = 0; j < size; j++) {
+            const gridRow = document.createElement("div");
+            gridRow.setAttribute("class", "gridRow");
+            gridColumn.appendChild(gridRow);
+            }
+        }        
+    }
+}
