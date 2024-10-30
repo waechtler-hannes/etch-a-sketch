@@ -3,7 +3,13 @@ const gridContainer = document.querySelector("#grid-container");
 
 document.addEventListener("mouseover", (event) => {
     if (event.target.getAttribute("class") === "gridRow") {
-        event.target.setAttribute("style", "background-color: black;")
+        if (parseFloat(event.target.style.opacity) >= 0.1 && parseFloat(event.target.style.opacity) <= 0.9) {
+            event.target.setAttribute("style", `${randomColor()} ${increaseOpacity(event.target)}`);
+        } else if (parseFloat(event.target.style.opacity) === 1) {
+            event.target.setAttribute("style", `${randomColor()} opacity: 1;`)
+        } else {
+            event.target.setAttribute("style", `${randomColor()} opacity: 0.1;`)
+        }
     }
 })
 
@@ -35,6 +41,18 @@ function loadGrid (size) {
             }
         }        
     }
+}
+
+function randomColor() {
+    return `background-color: rgb(
+        ${Math.floor(Math.random() * 255)}, 
+        ${Math.floor(Math.random() * 255)}, 
+        ${Math.floor(Math.random() * 255)}
+    );`
+}
+
+function increaseOpacity(target) {
+    return `opacity: ${parseFloat(target.style.opacity) + 0.1};`
 }
 
 loadGrid(16);
