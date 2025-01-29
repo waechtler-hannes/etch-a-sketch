@@ -1,1 +1,1 @@
-This is my fourth project, it contains a white grid with a customizable size of 1 x 1 up to 100 x 100 elements. When you hover over an element, it gets a random color and an increased opacity by +10% at every interaction. Try it yourself: https://waechtler-hannes.github.io/etch-a-sketch/
+This is my third project, it contains a white grid with a customizable size of 1 x 1 up to 100 x 100 elements. When you hover over an element, it gets a random color and an increased opacity by +10% at every interaction. Try it yourself: https://waechtler-hannes.github.io/etch-a-sketch/
